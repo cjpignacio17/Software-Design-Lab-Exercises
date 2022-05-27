@@ -1,0 +1,33 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>170</x><y>13</y><w>480</w><h>290</h></coordinates><panel_attributes>ATM
+--
+def __init__(self, bank):
+        EasyFrame.__init__(self, title = "ATM")
+        self.unsuccessfulLoginCount = 0
+--
+__init__-
+--
+Responsibilities
+else:
+        self.unsuccessfulLoginCount += 1
+        if self.unsuccessfulLoginCount &gt; 2:
+            self.messageBox(title = "Attention", \
+                        message = "Police is on the way")
+            self.loginButton["state"] = "disabled"       
+        else:
+            self.messageBox(title = "Attention", \
+                        message = "Police will be called after " + \
+                        str (3 - self.unsuccessfulLoginCount) + " more consecutive login fails!")   
+        self.statusField.setText("Name and pin not found!")</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>260</x><y>353</y><w>300</w><h>200</h></coordinates><panel_attributes>EasyFrame
+--
+name = self.nameField.getText()
+    pin = self.pinField.getText()
+    self.account = self.bank.get(name, pin)
+    if self.account:
+        self.unsuccessfulLoginCount = 0
+        self.statusField.setText("Hello, " + name + "!")
+        self.balanceButton["state"] = "normal"
+        self.depositButton["state"] = "normal"
+        self.withdrawButton["state"] = "normal"
+        self.loginButton["text"] = "Logout"
+        self.loginButton["command"] = self.logout</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>400</x><y>300</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;.
+</panel_attributes><additional_attributes>10;50;10;10</additional_attributes></element></diagram>
